@@ -1,0 +1,45 @@
+cand1 = input("please enter the cadidate first name  :")
+cand2 = input("please enter the candidate second name  :")
+cand1_votes =0
+cand2_votes =0
+
+voter_list   =[101,102,103,104]
+no_of_voters =len(voter_list)
+print("No of voters is:",no_of_voters)
+
+voted=[]
+while True:
+    if voter_list !=[]:
+        voter =int(input("please enter your voting Id: "))
+        age = int(input("please enter your age: "))
+        
+        if voter in voted:
+            print("you aleady voted the vote")
+        else:      
+                 
+            if voter in voter_list and age >=18:
+                print(f"   VOTE FOR :{cand1} \n VOTE FOR:{cand2}")
+                choice= int(input(f"please press 1 for :{cand1}\t 2 for: {cand2} "))
+                if choice == 1:
+                    print(f"You voted to :{cand1}")
+                    cand1_votes  +=1
+                elif choice==2:
+                    print(f"You voted to :{cand2}")
+                    cand2_votes +=1
+                voter_list.remove(voter)
+                voted.append(voter)
+                
+            else:
+                print("please enter the correct ID and age to Vote")
+            
+          #now showing the result 
+    else:
+            
+        if cand1 >cand2:
+            print(f"{cand1} Won the Election with Lead of :  {cand2_votes} Votes")
+        elif cand2 <cand1:
+            print(f"{cand2} Won the Election with : {cand2_votes} Votes")
+        else:
+            print("the election Tied !!")
+        break
+            
